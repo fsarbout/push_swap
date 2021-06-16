@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/04/11 18:22:11 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:33:53 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,4 +82,59 @@ void	clear_list(t_stack **lst)
 		free(*lst);
 		*lst = NULL;
 	}
+}
+
+int	del_last_node(t_stack **list)
+{
+	t_stack *tmp;
+	t_stack *new;
+	int last_node;
+	
+	tmp = *list;
+	new = NULL;
+	if (!tmp)
+		return (0);
+	if (!tmp->next)
+	{
+		free(new);
+		return (0);
+	}
+	new = tmp;
+	while (new->next->next)
+		new = new->next;
+	last_node = new->next->nb;
+	free(new->next);
+	new->next = NULL;
+	return (last_node);
+}
+
+int	del_first_node(t_stack **list)
+{
+	int first_node;
+	t_stack *new;
+	t_stack *tmp;
+	
+	first_node = 0;
+	tmp = *list;
+	if (!*list)
+	 	return (0);
+	if (tmp->next)
+	{
+		first_node = tmp->nb;
+		new = tmp->next;
+		// free(new);
+	}
+	return (first_node);
+}
+
+t_stack		*lstnew(int nb)
+{
+	t_stack	*stack;
+
+	stack = malloc(sizeof(t_stack));
+	if (!stack)
+		return (NULL);
+	stack->nb = nb;
+	stack->next = NULL;
+	return (stack);
 }

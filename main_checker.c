@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:03 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/05 02:24:00 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/16 20:53:39 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,10 +15,21 @@
 int main(int argc, char **argv)
 {
 	t_stack *a;
+	t_stack *b;
+	int hadak;
+	
 	
 	a = new_stack(argc, argv);
+	hadak = del_first_node(&a);
+	b = new_stack(argc, argv);
+	// swap(&a);
+	// push(&a , &b);
+	rotate(&a , &b);
 	print_list(&a);
-	is_sorted(a); 
+	printf("heeyyyy\n"   );
+	print_list(&b);
+	is_sorted(a);
+	
 }
 
 void	exit_(t_stack **stack,char *string, int error)
@@ -34,3 +45,4 @@ void	exit_(t_stack **stack,char *string, int error)
 		clear_list(stack);
 	exit(0);
 }
+
