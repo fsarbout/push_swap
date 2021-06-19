@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/16 20:33:53 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/19 16:27:18 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,18 +57,18 @@ void	print_list(t_stack **head)
 }
 
 
-t_stack	*new_stack(int argc, char **argv)
+t_stack	*new_stack(int ac, char **av)
 {
 	t_stack *stack;
 	
 	stack = NULL;
-	while (argc > 1)
+	while (ac > 1)
 	{
-		if (is_valid_arg(&stack, argv[argc - 1]))
-			list_add_front(&stack , ft_atoi(argv[argc - 1]));
+		if (is_valid_arg(&stack, av[ac - 1]))
+			list_add_front(&stack , ft_atoi(av[ac - 1]));
 		else
-			exit_(&stack, "not valid argument\n", 1);
-		argc--;
+			exit_(&stack,0 ,"not valid argument\n", 1);
+		ac--;
 	}
 	return (stack);
 }
@@ -111,21 +111,17 @@ int	del_last_node(t_stack **list)
 int	del_first_node(t_stack **list)
 {
 	int first_node;
-	t_stack *new;
 	t_stack *tmp;
 	
-	first_node = 0;
-	tmp = *list;
-	if (!*list)
-	 	return (0);
-	if (tmp->next)
-	{
-		first_node = tmp->nb;
-		new = tmp->next;
-		// free(new);
-	}
+	tmp = NULL;
+	if ((*list)->next)
+		tmp = (*list)->next;	
+	first_node = (*list)->nb;
+	free(*list);
+	*list = tmp;
 	return (first_node);
 }
+
 
 t_stack		*lstnew(int nb)
 {
