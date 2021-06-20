@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/19 16:28:58 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/20 13:04:55 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,13 +28,6 @@ typedef	struct	s_stack
 	struct s_stack	*next;
 }				t_stack;
 
-// typedef struct s_stacks
-// {
-// 	t_stack *stack_a;
-// 	t_stack *stack_b;
-// 	struct s_stacks *next;
-// }	t_stacks;
-
 void		clear_list(t_stack **lst);
 t_stack		*new_stack(int argc, char **argv);
 void		print_list(t_stack **head);
@@ -46,7 +39,6 @@ int			not_number(char *str);
 int 		is_valid_arg(t_stack **stack, char *str);
 int			is_sorted(t_stack *stack);
 int			ft_atoi_(t_stack **stack, const char *s);
-// void	ft_putendl_fd(char *s, int fd, int newline);
 void		swap(t_stack **stack);
 void		push(t_stack **stack_1 , t_stack **stack_2);
 int			del_first_node(t_stack **list);
@@ -54,8 +46,8 @@ int			del_last_node(t_stack **list);
 t_stack		*lstnew(int nb);
 void		rotate(t_stack **stack_1);
 void		reverse(t_stack **stack_1);
-void	complex_instructions(char *instruction, t_stack **a, t_stack **b);
-int	apply_instruction(char *line , t_stack **a , t_stack **b);
+void		complex_instructions(char *instruction, t_stack **a, t_stack **b);
+int			apply_instruction(char *line , t_stack **a , t_stack **b);
 
 
  #endif

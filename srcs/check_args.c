@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:05:18 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/19 16:28:29 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/20 12:21:37 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,11 +60,10 @@ int		is_sorted(t_stack *stack)
 	while (tmp && tmp->next)
 	{
 		if (tmp->nb > tmp->next->nb)
-			exit_(&stack,0 , "KO" ,2);
+			return (0);
 		tmp = tmp->next;
 	}
-	exit_(&stack, 0,"OK" , 0);
-	return (0);
+	return (1);
 }
 
 int	ft_atoi_(t_stack **stack, const char *s)

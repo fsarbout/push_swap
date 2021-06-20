@@ -6,13 +6,13 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/19 16:27:18 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/20 12:28:36 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	list_add_back(t_stack **head, int nb)
+void list_add_back(t_stack **head, int nb)
 {
 	t_stack *lastnode;
 	t_stack *node;
@@ -32,7 +32,7 @@ void	list_add_back(t_stack **head, int nb)
 	}
 }
 
-void	list_add_front(t_stack **head , int nb)
+void list_add_front(t_stack **head, int nb)
 {
 	t_stack *new;
 
@@ -45,35 +45,34 @@ void	list_add_front(t_stack **head , int nb)
 	}
 }
 
-void	print_list(t_stack **head)
+void print_list(t_stack **head)
 {
 	t_stack *temp;
 	temp = *head;
 	while (temp)
 	{
-		printf("%d\n" , temp->nb);
+		printf("%d\n", temp->nb);
 		temp = temp->next;
-	}	
+	}
 }
 
-
-t_stack	*new_stack(int ac, char **av)
+t_stack *new_stack(int ac, char **av)
 {
 	t_stack *stack;
-	
+
 	stack = NULL;
 	while (ac > 1)
 	{
 		if (is_valid_arg(&stack, av[ac - 1]))
-			list_add_front(&stack , ft_atoi(av[ac - 1]));
+			list_add_front(&stack, ft_atoi(av[ac - 1]));
 		else
-			exit_(&stack,0 ,"not valid argument\n", 1);
+			exit_(&stack, 0, "not valid argument\n", 1);
 		ac--;
 	}
 	return (stack);
 }
 
-void	clear_list(t_stack **lst)
+void clear_list(t_stack **lst)
 {
 	if (*lst)
 	{
@@ -84,12 +83,12 @@ void	clear_list(t_stack **lst)
 	}
 }
 
-int	del_last_node(t_stack **list)
+int del_last_node(t_stack **list)
 {
 	t_stack *tmp;
 	t_stack *new;
 	int last_node;
-	
+
 	tmp = *list;
 	new = NULL;
 	if (!tmp)
@@ -108,24 +107,23 @@ int	del_last_node(t_stack **list)
 	return (last_node);
 }
 
-int	del_first_node(t_stack **list)
+int del_first_node(t_stack **list)
 {
 	int first_node;
 	t_stack *tmp;
-	
+
 	tmp = NULL;
 	if ((*list)->next)
-		tmp = (*list)->next;	
+		tmp = (*list)->next;
 	first_node = (*list)->nb;
 	free(*list);
 	*list = tmp;
 	return (first_node);
 }
 
-
-t_stack		*lstnew(int nb)
+t_stack *lstnew(int nb)
 {
-	t_stack	*stack;
+	t_stack *stack;
 
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
