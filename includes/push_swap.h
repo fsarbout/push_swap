@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/20 13:04:55 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/21 19:29:47 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,9 @@ void		rotate(t_stack **stack_1);
 void		reverse(t_stack **stack_1);
 void		complex_instructions(char *instruction, t_stack **a, t_stack **b);
 int			apply_instruction(char *line , t_stack **a , t_stack **b);
-
+int 		get_min(t_stack *a);
+int			get_max(t_stack *a);
+int			list_lenght(t_stack *a);
+int 		*get_array(t_stack *a);
 
  #endif

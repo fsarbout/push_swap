@@ -1,17 +1,9 @@
-instructions >>
-1)	sa : - swap the first  2 elements of stack a
-2)	sb : - swap the first  2 elements of stack b
-3)	ss : both
-4)	pa : take the top of a and put it at the top of b    //push
-5)	pb : take the top of b and put it at the top of a
-	<< reverse >>
-6)	ra : the first element becomes the last one 
-7)	rb : the first element becomes the last one 
-8)	rr : ra + rb
-9)	rra : The last element becomes the first one
-10)	rrb : The last element becomes the first one
-10)	rrr : rra + rrb
+the list is as below :
 
+	3   23   4   1
 
-steps    >>
-	1) swap : p
+	if (tmp && tmp->next)
+	{
+		if (tmp < tmp->next)
+			tmp = tmp->next;
+	}
