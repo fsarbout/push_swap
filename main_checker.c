@@ -6,11 +6,12 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:03 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/21 22:36:13 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/22 13:11:39 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "./includes/push_swap.h"
+#include <wchar.h>
 
 int main(int ac, char **av)
 {
@@ -18,11 +19,10 @@ int main(int ac, char **av)
 	t_stack *b;
 	char *instruction;
 	int gnl_ret;
-	// int *array;
 	
-	b = NULL;
-	if (ac >= 2)
+	if (ac > 2)
 	{
+		b = NULL;
 		a = new_stack(ac, av);
 		while (get_next_line(0, &instruction))
 		{
@@ -32,19 +32,14 @@ int main(int ac, char **av)
 				return (-1);
 		}
 		// 
-		printf("min %d\n" ,get_min(a));
-		printf("max %d\n" ,get_max(a));
-		printf("lenght %d\n" ,list_lenght(a));
-		// array = get_array(&a);
-		printf("array %ls\n" ,get_array(a));
-		printf("arrayuhuhe gewug\n");
-
-
-
-
-		9-
-		// if (array)
-		// 	free(array);
+		// printf("min %d\n" ,get_min(a));
+		// printf("max %d\n" ,get_max(a));
+		// printf("lenght %d\n" ,list_lenght(a));
+		// printf("array %ls\n" ,get_array(a));
+		
+		print_list(&a);
+		printf("******************\n");
+		print_list(&b);
 		
 		if (is_sorted(a) && !b)
 			exit_(&a, 0, "OK", 0);
@@ -52,24 +47,6 @@ int main(int ac, char **av)
 			exit_(&a, 0, "KO", 2);
 	}
 	return (0);
-}
-
-void	exit_(t_stack **a,t_stack **b ,char *string, int error)
-{
-	(void)b;
-	if (error == 1)
-		ft_putstr("Error\n");
-	if (error == 0)
-		ft_putendl_fd(GREEN, STDOUT_FILENO);
-	if (error == 2)
-		ft_putendl_fd(RED, STDOUT_FILENO);
-	ft_putstr(string);
-	if (error == 1)
-	{
-		clear_list(a);
-		clear_list(b);
-	}
-	exit(0);
 }
 
 

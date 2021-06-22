@@ -3,7 +3,7 @@ CC = gcc
 CFLAGS = -Wall -g -Wextra -Werror -fsanitize=address
 
 NAME_CH = checker
-# NAME_PS = push_swap
+NAME_PS = push_swap
 
 SRC_CHECKER = srcs/*.c\
 	libft/*.c\
@@ -12,6 +12,7 @@ SRC_CHECKER = srcs/*.c\
 SRC_PS = srcs/*.c\
 	libft/*.c\
 	main_push_swap.c
+	
 
 OBJ_CH = $(SRC_CHECKER:.C=.O)
 OBJ_PS = $(SRC_PS:.C=.O)
@@ -22,7 +23,7 @@ $(NAME_CH):$(SRC_CHECKER)
 	@cd libft && make re
 	@$(CC) $(SRC_CHECKER) $(CFLAGS) -o $(NAME_CH)
 
-$(NAME_PS):$(SRC_PS)
+$(NAME_PS):$(SRC_PS) 
 	@cd libft && make re
 	@$(CC) $(SRC_PS) $(CFLAGS) -o $(NAME_PS)
 

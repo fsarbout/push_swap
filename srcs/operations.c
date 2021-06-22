@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:07:10 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/21 11:55:06 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/22 12:03:12 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,8 @@ void	push(t_stack **stack_1 , t_stack **stack_2)
 {
 	int		nbr;
 
-	if (*stack_2)
-	{
+	if (*stack_1)
+	{	
 		nbr = del_first_node(stack_1);
 		list_add_front(stack_2, nbr);
 	}

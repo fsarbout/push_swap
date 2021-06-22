@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 18:09:00 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/21 19:29:38 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/22 11:49:42 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,6 @@ int		list_lenght(t_stack *a)
 
 int *get_array(t_stack *a)
 {
-	// int min;
-	// int max;
 	int lenght;
 	int *tab;
 	int i;
