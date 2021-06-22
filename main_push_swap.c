@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/22 14:31:33 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/22 16:25:36 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,13 +33,14 @@ void 	push_swap(t_stack **a, t_stack **b, int  ac)
 		swap(a);
 	if (ac == 3)
 		sort_three(a);
-	// if (ac == 5)
-	// 	do_something();
+	if (ac == 5)
+		sort_five(a, b);
 	// if (ac == 100)
 	// 	do_something();
 	// else
 	// 	do_something();
 	print_list(a);
+	
 }
 
 void	sort_three(t_stack **a)
@@ -71,13 +72,60 @@ void	sort_three(t_stack **a)
 	}
 }
 
-void	sort_five(t_stack **a)
+void	sort_five(t_stack **a, t_stack **b)
 {
-	int min;
+	int max_index;
+	int min_index;
+	int lenght = list_lenght(*a);
+	int i;
+	
+	i = 0;
+	max_index = get_max_index(*a);
+	min_index = get_min_index(*a);
+	if (max_index <= (lenght / 2))
+	{
+		while (i < max_index && (*a))
+		{
+			
+		}
+	}
+	
+
+
+
+}
+
+int	get_max_index(t_stack *a)
+{
+	int max_index;
 	int max;
+	
+	max = get_max(a);
+	max_index = 1;
+	while ((a) && ((a)->next))
+	{
+		if ((a)->nb == max)
+			return (max_index);
+		max_index++;
+		(a) = (a)->next;
+	}
+	return max_index;
+}
 
-	
 
+int	get_min_index(t_stack *a)
+{
+	int min_index;
+	int min;
 	
-	
+	min = get_min(a);
+	min_index = 1;
+	while ((a) && ((a)->next))
+	{
+		if ((a)->nb == min)
+			return (min_index);
+		min_index++;
+		(a) = (a)->next;
+	}
+	return min_index;
 }
