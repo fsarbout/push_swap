@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/22 16:21:15 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/22 20:38:23 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,5 +57,6 @@ void		sort_three(t_stack **a);
 void		sort_five(t_stack **a, t_stack **b);
 int			get_max_index(t_stack *a);
 int			get_min_index(t_stack *a);
+void		exclude_max(t_stack **a, t_stack **b);
 
  #endif
