@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/22 23:54:55 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/23 08:50:53 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ void 	push_swap(t_stack **a, t_stack **b, int  ac)
 	// 	do_something();
 	else 
 		printf("hello1\n");
-	printf("l9laawi\n");
 	print_list(a);
 	printf("*******\n");
 	print_list(b);
@@ -85,7 +84,12 @@ void	sort_three(t_stack **a)
 void	sort_five(t_stack **a, t_stack **b)
 {
 	exclude_max(a, b);
-	
+	exclude_min(a, b);
+	if (!is_sorted(*a))
+		sort_three(a);
+	push(b,a);
+	push(b,a);
+	rotate(a);
 }
 
 void	exclude_max(t_stack **a, t_stack **b)
@@ -118,18 +122,17 @@ void exclude_min(t_stack **a, t_stack **b)
 	int lenght;
 	int i;
 	
+	i = 0;
 	lenght = list_lenght(*a);
 	min_index = get_min_index(*a);
 	if (min_index <= lenght / 2)
 	{
-		printf(" min in th/e first half\n");
-		while (lenght > min_index && lenght--)
+		while (i < min_index && i++)
 			rotate(a);
 		push(a,b);
 	}
 	else
 	{
-		printf("min in the second half\n");
 		i = lenght;
 		while (i >= min_index && i--)
 			reverse(a);
