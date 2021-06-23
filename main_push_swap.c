@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/23 08:50:53 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/23 09:41:29 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,16 @@ int main(int ac, char **av)
 	t_stack *a;
 	t_stack *b;
 	
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		b = NULL;
 		a = new_stack(ac, av);
 		if (!is_sorted(a))
 			push_swap(&a, &b, ac - 1);
 	}
-	clear_list(&a);
-	clear_list(&b);
+	exit_(&a,&b,0,5);
+	// clear_list(&a);
+	// clear_list(&b);
 	// print_list(&a);
 	// printf("**********\n");
 	// print_list(&b);
@@ -122,9 +123,10 @@ void exclude_min(t_stack **a, t_stack **b)
 	int lenght;
 	int i;
 	
-	i = 0;
+	i = 1;
 	lenght = list_lenght(*a);
 	min_index = get_min_index(*a);
+	// printf("min index : %d\n", min_index);
 	if (min_index <= lenght / 2)
 	{
 		while (i < min_index && i++)

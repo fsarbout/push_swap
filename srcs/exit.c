@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/22 13:10:54 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/22 13:11:10 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/23 09:41:38 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	exit_(t_stack **a,t_stack **b ,char *string, int error)
 {
-	(void)b;
+	// (void)b;
+	// (void)a;
 	if (error == 1)
 		ft_putstr("Error\n");
 	if (error == 0)
@@ -25,7 +26,14 @@ void	exit_(t_stack **a,t_stack **b ,char *string, int error)
 	if (error == 1)
 	{
 		clear_list(a);
-		clear_list(b);
+		if (b)
+			clear_list(b);
+	}
+	else 
+	{
+		clear_list(a);
+		if (b)
+			clear_list(b);
 	}
 	exit(0);
 }

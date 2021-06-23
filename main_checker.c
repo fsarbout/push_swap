@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:03 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/22 19:14:24 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/23 09:28:35 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ int main(int ac, char **av)
 	char *instruction;
 	int gnl_ret;
 	
-	if (ac > 2)
+	if (ac >= 2)
 	{
 		b = NULL;
 		a = new_stack(ac, av);
