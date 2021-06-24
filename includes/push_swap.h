@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/23 12:13:25 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/23 19:54:18 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,13 @@
 
 # define GREEN "\e[1;32m"
 # define RED "\e[0;31m"
+# define WHT "\e[0;37m"
+# define BLK "\e[1;30m"
+# define GRN "\e[1;32m"
+# define YEL "\e[1;33m"
+# define BLU "\e[1;34m"
+# define MAG "\e[1;35m"
+# define CYN "\e[1;36m"
 
 typedef	struct	s_stack
 {	
@@ -48,16 +55,24 @@ void		rotate(t_stack **stack_1);
 void		reverse(t_stack **stack_1);
 void		complex_instructions(char *instruction, t_stack **a, t_stack **b);
 int			apply_instruction(char *line , t_stack **a , t_stack **b);
-int 		get_min(t_stack *a);
-int			get_max(t_stack *a);
 int			list_lenght(t_stack *a);
 int 		*get_array(t_stack *a);
 void 		push_swap(t_stack **a, t_stack **b, int  ac);
 void		sort_three(t_stack **a);
 void		sort_five(t_stack **a, t_stack **b);
+/* min_max_function */
+int 		get_min(t_stack *a);
+int			get_max(t_stack *a);
 int			get_max_index(t_stack *a);
 int			get_min_index(t_stack *a);
 void		exclude_max(t_stack **a, t_stack **b);
 void		exclude_min(t_stack **a, t_stack **b);
+
+/**/
+
+void ft_swap(int* a, int* b);
+int partition (int arr[], int low, int high);
+void quickSort(int arr[], int low, int high);
+void printArray(int arr[], int size);
 
  #endif
