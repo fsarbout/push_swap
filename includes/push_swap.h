@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/23 19:54:18 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/24 19:59:47 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,6 +60,7 @@ int 		*get_array(t_stack *a);
 void 		push_swap(t_stack **a, t_stack **b, int  ac);
 void		sort_three(t_stack **a);
 void		sort_five(t_stack **a, t_stack **b);
+
 /* min_max_function */
 int 		get_min(t_stack *a);
 int			get_max(t_stack *a);
@@ -68,11 +69,13 @@ int			get_min_index(t_stack *a);
 void		exclude_max(t_stack **a, t_stack **b);
 void		exclude_min(t_stack **a, t_stack **b);
 
-/**/
-
+/* quick_sort algo functions*/
 void ft_swap(int* a, int* b);
 int partition (int arr[], int low, int high);
-void quickSort(int arr[], int low, int high);
-void printArray(int arr[], int size);
+int *quick_sort(int arr[], int low, int high);
+void print_array(int arr[], int size);
+
+void	sort_hundred(t_stack **a, t_stack **b);
+int	get_middle(t_stack	*a, int	len);
 
  #endif

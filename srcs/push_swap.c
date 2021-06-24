@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/23 12:03:48 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:00:11 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void 	push_swap(t_stack **a, t_stack **b, int  ac)
 	else if (ac == 5)
 		sort_five(a, b);
 	else if (ac <= 100)
-		printf("how you doing\n");
+		sort_hundred(a, b);
 	// else
 	// 	do_something();
 	else 
@@ -67,4 +67,18 @@ void	sort_five(t_stack **a, t_stack **b)
 	push(b,a);
 	push(b,a);
 	rotate(a);
+}
+
+void	sort_hundred(t_stack **a, t_stack **b)
+{
+	int lenght;
+	int middle;
+
+	(void)b;
+	lenght = list_lenght(*a);
+	middle = get_middle(*a , lenght);
+	// push_mins();
+	// sort_part();
+
+	printf("the middle %d\n", middle);
 }

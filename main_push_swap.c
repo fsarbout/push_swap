@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/23 19:17:40 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:04:26 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,9 +53,11 @@ int main(int ac, char **av)
 		int lenght = list_lenght(a);
 		printf("array lenght %d\n", lenght);
 		array = get_array(a);
+		printf("     Non sorted array\n");
 		while (i < lenght)
 		{
-			printf(" array %d\n" , array[i]);
+			
+			printf("%d\n" , array[i]);
 			i++;
 		}
 		if (!is_sorted(a))

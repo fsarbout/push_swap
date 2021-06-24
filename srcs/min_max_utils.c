@@ -6,34 +6,37 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/24 11:52:17 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/24 20:04:22 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-// int	get_middle(t_stack	*a, int	len)
-// {
-// 	int	mid;
-// 	int	*arr;
-// 	int	i;
-// 	int	*sorted_arr;
+int	get_middle(t_stack	*a, int	len)
+{
+	int	mid;
+	int	*arr;
+	int	i;
+	int	*sorted_arr;
 
-// 	if (len == 1)
-// 		return (a->nb);
-// 	if (len == 2)
-// 	{
-// 		if (a->nb < a->next->nb)
-// 			return (a->nb);
-// 		return (a->next->nb);
-// 	}
-// 	i = 0;
-// 	arr = get_array(a);
-// 	sorted_arr = quiq_sort(arr, 0, len - 1);
-// 	mid = sorted_arr[len / 2];
-// 	free(arr);
-// 	return (mid);
-// }
+	if (len == 1)
+		return (a->nb);
+	if (len == 2)
+	{
+		if (a->nb < a->next->nb)
+			return (a->nb);
+		return (a->next->nb);
+	}
+	i = 0;
+	arr = get_array(a);
+		
+	sorted_arr = quick_sort(arr, 0, len - 1);
+	mid = sorted_arr[len / 2];
+	free(arr);
+	printf("      Sorted array\n");
+	print_array(arr, len); 
+	return (mid);
+}
 
 int	get_min(t_stack *a)
 {
