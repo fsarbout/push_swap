@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/24 19:59:47 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 12:34:03 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,6 +34,16 @@ typedef	struct	s_stack
 	int				nb;
 	struct s_stack	*next;
 }				t_stack;
+
+// typedef struct s_counters
+// {
+// 	int i;
+// 	int j;
+// 	int index;
+// 	int index1;
+// 	int index2;
+// }			t_counters;
+
 
 void		clear_list(t_stack **lst);
 t_stack		*new_stack(int argc, char **argv);
@@ -76,6 +86,8 @@ int *quick_sort(int arr[], int low, int high);
 void print_array(int arr[], int size);
 
 void	sort_hundred(t_stack **a, t_stack **b);
-int	get_middle(t_stack	*a, int	len);
+int		get_middle(t_stack	*a, int	len);
+int		get_closest_min_index(t_stack *a, int middle);
+void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle);
 
  #endif

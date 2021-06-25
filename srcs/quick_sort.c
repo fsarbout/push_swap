@@ -6,13 +6,11 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 15:11:38 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/24 20:15:11 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 12:27:04 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-#include <stdio.h>
 
 /*
 ** https://hackr.io/blog/quick-sort-in-c

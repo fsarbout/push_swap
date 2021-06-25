@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/24 20:00:11 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 12:43:26 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,17 @@ void	sort_hundred(t_stack **a, t_stack **b)
 	(void)b;
 	lenght = list_lenght(*a);
 	middle = get_middle(*a , lenght);
-	// push_mins();
+	move_mins_to_b(a, b, lenght / 2 , middle);
 	// sort_part();
-
 	printf("the middle %d\n", middle);
+}
+
+void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
+{
+	(void)half_stack;
+	(void)b;
+	int index;
+
+	index = get_closest_min_index(*a, middle);
+	printf("the fucking closest min index is : %d\n" , index);
 }
