@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 18:27:12 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 19:26:58 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ int	get_middle(t_stack	*a, int	len)
 	sorted_arr = quick_sort(arr, 0, len - 1);
 	mid = sorted_arr[len / 2];
 	// free(arr);
-	printf("      Sorted array\n");
-	print_array(arr, len); 
+	// printf("      Sorted array\n");
+	// print_array(arr, len); 
 	return (mid);
 }
 
@@ -155,17 +155,15 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 	int	*arr;
 	int i;
 
-	printf("lenght dzmer %d \n", lenght);
 	arr = get_array(a);
-	printf("**********\n");
-	print_array(arr, lenght);
+	// print_array(arr, lenght);
 	int index1 = 0;
 	int index2 = 0;
 	i = 0;
-	while (arr[i] >= middle && i++)
+	while (arr[i] >= middle && ++i)
 		index1++;
 	i = 0;
-	while (arr[lenght - i - 1] >= middle && i++)
+	while (arr[lenght - i - 1] >= middle && ++i)
 		index2++;
 	if (index1 <= index2)
 		return (index1);

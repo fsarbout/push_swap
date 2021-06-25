@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 18:24:17 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 19:33:30 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void 	push_swap(t_stack **a, t_stack **b, int  ac)
 		sort_five(a, b);
 	else if (ac <= 100)
 		sort_hundred(a, b);
-	// else
+	// else if (ac == 500)
 	// 	do_something();
 	else 
 		printf("hello1\n");
@@ -78,8 +78,6 @@ void	sort_hundred(t_stack **a, t_stack **b)
 	lenght = list_lenght(*a);
 	middle = get_middle(*a , lenght);
 	move_mins_to_b(a, b, lenght / 2 , middle);
-	// sort_part();
-	printf("the middle %d\n", middle);
 }
 
 void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
@@ -92,23 +90,20 @@ void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
 	while (i < half_stack)
 	{
 		lenght = list_lenght(*a);
-		printf("the fucking lenght : %d\n" , lenght);
-		middle = lenght / 2;
-		printf("middle by 22222222222222 : %d\n" , middle);
+		int mid = lenght / 2;
 		index = get_closest_min_index(*a, middle, lenght);
-		printf("the fucking closest min index is : %d\n" , index);
 		j = 0;
-		if (index < middle)
-			while (j < index && j++)
+		if (index < mid)
+			while (j < index && ++j)
 				rotate(a);
 		else
-			while (index < lenght && index++)			
+			while (index < lenght && ++index)			
 				reverse(a);
 		push(a,b);
 		i++;
 	}
-	printf("adiiik zzmer\n");
-	print_list(a);
-	printf("adiiik zzmerqwejkgheoqug eqgheqrgh\n");
-	print_list(b);
+	// printf("list a / 2 \n");
+	// print_list(a);
+	// printf("list b / 2\n");
+	// print_list(b);
 }
