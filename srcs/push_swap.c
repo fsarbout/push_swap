@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 16:04:16 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:46:24 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,30 +85,31 @@ void	sort_hundred(t_stack **a, t_stack **b)
 void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
 {
 	int index;
-	int lenght = list_lenght(a);
+	int lenght = list_lenght(*a);
 	int i = 0;
-	int j;
+	int j = 0;
+	(void)b;
 	index = get_closest_min_index(*a, middle);
 	printf("the fucking closest min index is : %d\n" , index);
 	printf("stack half is :%d \n", half_stack);
 	
-	// while (i < half_stack)
-	// {
-	// 	index = get_closest_min_index(*a, middle);
-	// 	middle = lenght / 2;
-	// 	j = 0;
-	// 	if (index < middle)
-	// 	{
-	// 		while (j < index && j++)
-	// 			rotate(a);
-	// 	}
-	// 	else
-	// 	{	
-	// 		while (index < lenght && j++)			
-	// 			reverse(a);
-	// 			j++;
-	// 	}
-	// 	push(b,a);
-	// 	i++;
-	// }
+	while (i < half_stack)
+	{
+		lenght = list_lenght(*a);
+		index = get_closest_min_index(*a, middle);
+		middle = lenght / 2;
+		j = 0;
+		if (index < middle)
+			while (j < index && j++)
+				rotate(a);
+		else
+			while (index < lenght && index++)			
+				reverse(a);
+		push(a,b);
+		i++;
+	}
+	printf("adiiik zzmer\n");
+	print_list(a);
+	printf("adiiik zzmerqwejkgheoqug eqgheqrgh\n");
+	print_list(b);
 }

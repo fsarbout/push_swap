@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 14:24:59 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 17:15:56 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -157,21 +157,16 @@ int	get_closest_min_index(t_stack *a, int middle)
 	int i;
 
 	lenght = list_lenght(a);
+	printf("lenght dzmer %d \n", lenght);
 	arr = get_array(a);
 	int index1 = 0;
 	int index2 = 0;
 	i = 0;
-	while (arr[i] >= middle)
-	{
+	while (arr[i] >= middle && i++)
 		index1++;
-		i++;
-	}
 	i = 0;
-	while (arr[lenght - i - 1] >= middle)
-	{
+	while (arr[lenght - i - 1] >= middle && i++)
 		index2++;
-		i++;
-	}
 	if (index1 <= index2)
 		return (index1);
 	return (lenght - i - 1);
