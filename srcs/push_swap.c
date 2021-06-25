@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 17:46:24 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/25 18:24:17 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,16 +88,15 @@ void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
 	int lenght = list_lenght(*a);
 	int i = 0;
 	int j = 0;
-	(void)b;
-	index = get_closest_min_index(*a, middle);
-	printf("the fucking closest min index is : %d\n" , index);
-	printf("stack half is :%d \n", half_stack);
-	
+
 	while (i < half_stack)
 	{
 		lenght = list_lenght(*a);
-		index = get_closest_min_index(*a, middle);
+		printf("the fucking lenght : %d\n" , lenght);
 		middle = lenght / 2;
+		printf("middle by 22222222222222 : %d\n" , middle);
+		index = get_closest_min_index(*a, middle, lenght);
+		printf("the fucking closest min index is : %d\n" , index);
 		j = 0;
 		if (index < middle)
 			while (j < index && j++)
