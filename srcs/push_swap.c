@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 19:33:30 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/26 16:04:09 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void 	push_swap(t_stack **a, t_stack **b, int  ac)
 {
 	(void)b;
 	if (ac == 2)
-		swap(a);
+		swap(a, 1);
 	else if (ac == 3)
 		sort_three(a);
 	else if (ac == 5)
@@ -37,24 +37,24 @@ void	sort_three(t_stack **a)
 	if ((*a)->nb == get_max(*a))
 	{
 		if ((*a)->next->nb == min)
-			rotate(a);
+			rotate(a, 1);
 		else
 		{
-			rotate(a);
-			swap(a);
+			rotate(a, 1);
+			swap(a, 1);
 		}
 	}
 	else if ((*a)->nb == min)
 	{
-		reverse(a);
-		swap(a);
+		reverse(a, 1);
+		swap(a, 1);
 	}
 	else
 	{
 		if ((*a)->next->nb == min)
-			swap(a);
+			swap(a, 1);
 		else
-			reverse(a);
+			reverse(a, 1);
 	}
 }
 
@@ -64,9 +64,9 @@ void	sort_five(t_stack **a, t_stack **b)
 	exclude_min(a, b);
 	if (!is_sorted(*a))
 		sort_three(a);
-	push(b,a);
-	push(b,a);
-	rotate(a);
+	push(b,a, 2);
+	push(b,a, 2);
+	rotate(a, 1);
 }
 
 void	sort_hundred(t_stack **a, t_stack **b)
@@ -95,15 +95,11 @@ void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle)
 		j = 0;
 		if (index < mid)
 			while (j < index && ++j)
-				rotate(a);
+				rotate(a, 1);
 		else
 			while (index < lenght && ++index)			
-				reverse(a);
-		push(a,b);
+				reverse(a, 1);
+		push(a,b, 1);
 		i++;
 	}
-	// printf("list a / 2 \n");
-	// print_list(a);
-	// printf("list b / 2\n");
-	// print_list(b);
 }

@@ -6,37 +6,13 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 19:26:58 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/26 16:04:55 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_middle(t_stack	*a, int	len)
-{
-	int	mid;
-	int	*arr;
-	int	i;
-	int	*sorted_arr;
 
-	if (len == 1)
-		return (a->nb);
-	if (len == 2)
-	{
-		if (a->nb < a->next->nb)
-			return (a->nb);
-		return (a->next->nb);
-	}
-	i = 0;
-	arr = get_array(a);
-		
-	sorted_arr = quick_sort(arr, 0, len - 1);
-	mid = sorted_arr[len / 2];
-	// free(arr);
-	// printf("      Sorted array\n");
-	// print_array(arr, len); 
-	return (mid);
-}
 
 int	get_min(t_stack *a)
 {
@@ -80,15 +56,15 @@ void	exclude_max(t_stack **a, t_stack **b)
 	if (max_index <= lenght / 2)
 	{
 		while (i < max_index && i++)
-			rotate(a);
-		push(a,b);
+			rotate(a, 1);
+		push(a,b, 1);
 	}
 	else
 	{
 		i = lenght;
 		while (i >= max_index && i--)
-			reverse(a);
-		push(a,b);
+			reverse(a, 1);
+		push(a,b, 1);
 	}
 }
 
@@ -104,15 +80,15 @@ void exclude_min(t_stack **a, t_stack **b)
 	if (min_index <= lenght / 2)
 	{
 		while (i < min_index && i++)
-			rotate(a);
-		push(a,b);
+			rotate(a, 1);
+		push(a,b, 1);
 	}
 	else
 	{
 		i = lenght;
 		while (i >= min_index && i--)
-			reverse(a);
-		push(a,b);
+			reverse(a, 1);
+		push(a, b, 1);
 	}
 }
 
@@ -156,7 +132,6 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 	int i;
 
 	arr = get_array(a);
-	// print_array(arr, lenght);
 	int index1 = 0;
 	int index2 = 0;
 	i = 0;
@@ -168,4 +143,27 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 	if (index1 <= index2)
 		return (index1);
 	return (lenght - i - 1);
+}
+
+int	get_middle(t_stack	*a, int	len)
+{
+	int	mid;
+	int	*arr;
+	int	i;
+	int	*sorted_arr;
+
+	if (len == 1)
+		return (a->nb);
+	if (len == 2)
+	{
+		if (a->nb < a->next->nb)
+			return (a->nb);
+		return (a->next->nb);
+	}
+	i = 0;
+	arr = get_array(a);
+	sorted_arr = quick_sort(arr, 0, len - 1);
+	mid = sorted_arr[len / 2];
+	free(arr);
+	return (mid);
 }

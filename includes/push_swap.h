@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 18:16:25 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/26 16:01:24 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,13 +56,15 @@ int			not_number(char *str);
 int 		is_valid_arg(t_stack **stack, char *str);
 int			is_sorted(t_stack *stack);
 int			ft_atoi_(t_stack **stack, const char *s);
-void		swap(t_stack **stack);
-void		push(t_stack **stack_1 , t_stack **stack_2);
+/* operations */
+void		swap(t_stack **stack, int key);
+void		push(t_stack **stack_1 , t_stack **stack_2, int key);
+void		rotate(t_stack **stack_1, int key);
+void		reverse(t_stack **stack_1, int key);
+/* lists */
 int			del_first_node(t_stack **list);
 int			del_last_node(t_stack **list);
 t_stack		*lstnew(int nb);
-void		rotate(t_stack **stack_1);
-void		reverse(t_stack **stack_1);
 void		complex_instructions(char *instruction, t_stack **a, t_stack **b);
 int			apply_instruction(char *line , t_stack **a , t_stack **b);
 int			list_lenght(t_stack *a);
