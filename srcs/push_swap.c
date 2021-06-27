@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/27 19:04:15 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/27 20:25:57 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -87,69 +87,72 @@ void	sort_min_half(t_stack **a, t_stack **b, int lenght, int half_lenght)
 {
 	while (*b && (*b)->next)
 	{
-		// int min_index = get_min_index(*b);
-		// printf (" min index : %d\n" , min_index);
-		// if (min_index > half_lenght)
-		// {
-		// 	min_index = lenght - min_index + 1 ;
-		// 	printf (" min index : %d\n" , min_index);
-		// 	printf (" lenght : %d\n" , lenght);
-		// 	printf (" half lenght : %d\n" , half_lenght);
-		// 	while (min_index > 0)
-		// 	{
-		// 		reverse(b,1);			
-		// 		visualize(*a, *b);
-		// 		min_index--;
-		// 	}
-		// 	push(b, a, 2);
-		// 	visualize(*a, *b);
-		// 	rotate(a, 1);
-		// 	visualize(*a, *b);
-		// }
-		// else
-		// {
-		// 	while (min_index > 1)
-		// 	{
-		// 		rotate(b,1);
-		// 		visualize(*a, *b);
-		// 		min_index--;
-		// 	}
-		// 	push(b, a, 2);
-		// 	visualize(*a, *b);
-		// 	rotate(a, 1);
-		// 	visualize(*a, *b);
-		// }
-		/**/
-		
- 		int max_index = get_max_index(*b);
-		visualize(*a, *b);
-		if (max_index > half_lenght)
+		int min_index = get_min_index(*b);
+		printf (" min index : %d\n" , min_index);
+		if (min_index > half_lenght)
 		{
-			printf ("max index %d \n", max_index);
-			max_index = lenght - max_index;
-			printf ("max index %d \n", max_index);
-			while (max_index > 0)
+			min_index = lenght - min_index + 1 ;
+			printf (" min index : %d\n" , min_index);
+			printf (" lenght : %d\n" , lenght);
+			printf (" half lenght : %d\n" , half_lenght);
+			while (min_index > 0)
 			{
-				reverse(b,1);
+				reverse(b,1);			
 				visualize(*a, *b);
-				max_index--;
+				min_index--;
 			}
 			push(b, a, 2);
+			visualize(*a, *b);
+			rotate(a, 1);
 			visualize(*a, *b);
 		}
 		else
 		{
-			max_index = max_index - 1;
-			printf ("max index %d \n", max_index);
-			while (max_index > 1)
+			while (min_index > 1)
 			{
 				rotate(b,1);
 				visualize(*a, *b);
-				max_index--;
+				min_index--;
 			}
 			push(b, a, 2);
 			visualize(*a, *b);
+			rotate(a, 1);
+			visualize(*a, *b);
 		}
+		/**/
+		
+ 		// int max_index = get_max_index(*b);
+		//  printf ("max index %d \n", max_index);
+		// visualize(*a, *b);
+		// if (max_index > half_lenght)
+		// {
+		// 	printf ("max index %d \n", max_index);
+		// 	max_index = lenght - max_index;
+		// 	printf ("max index %d \n", max_index);
+		// 	while (max_index >= 0)
+		// 	{
+		// 		reverse(b,1);
+		// 		visualize(*a, *b);
+		// 		max_index--;
+		// 		printf("max in loop %d\n", max_index);
+		// 	}
+		// 	push(b, a, 2);
+		// 	visualize(*a, *b);
+		// }
+		// else
+		// {
+		// 	max_index = max_index - 1 ;
+		// 	printf ("max index %d \n", max_index);
+		// 	while (max_index > 1)
+		// 	{
+		// 		rotate(b,1);
+		// 		visualize(*a, *b);
+		// 		max_index--;
+		// 		printf("max in loop %d\n", max_index);
+		// 	}
+		// 	push(b, a, 2);
+		// 	visualize(*a, *b);
+		// }
 		*b = (*b)->next;
 		lenght--;
 	}
