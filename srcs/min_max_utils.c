@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/26 16:04:55 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/27 11:53:33 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,6 +77,7 @@ void exclude_min(t_stack **a, t_stack **b)
 	i = 1;
 	lenght = list_lenght(*a);
 	min_index = get_min_index(*a);
+	// printf("Exclude MIN %d\n", min_index);
 	if (min_index <= lenght / 2)
 	{
 		while (i < min_index && i++)
@@ -119,7 +120,9 @@ int	get_min_index(t_stack *a)
 	while ((a) && ((a)->next))
 	{
 		if ((a)->nb == min)
+		{
 			return (min_index);
+		}
 		min_index++;
 		(a) = (a)->next;
 	}
@@ -139,6 +142,25 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 		index1++;
 	i = 0;
 	while (arr[lenght - i - 1] >= middle && ++i)
+		index2++;
+	if (index1 <= index2)
+		return (index1);
+	return (lenght - i - 1);
+}
+
+int	get_closest_max_index(t_stack *a, int middle, int lenght)
+{
+	int	*arr;
+	int i;
+
+	arr = get_array(a);
+	int index1 = 0;
+	int index2 = 0;
+	i = 0;
+	while (arr[i] <= middle && ++i)
+		index1++;
+	i = 0;
+	while (arr[lenght - i - 1] <= middle && ++i)
 		index2++;
 	if (index1 <= index2)
 		return (index1);

@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:07:10 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/26 16:06:45 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/27 08:41:12 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,9 @@ void	reverse(t_stack **stack_1, int key)
 		list_add_front(stack_1, nbr);
 	}
 	if (key == 1)
-		write(1 ,"rra\n", 3);
+		write(1 ,"rra\n", 4);
 	else if (key == 2)
-		write(1 ,"rrb\n", 3);
+		write(1 ,"rrb\n", 4);
 }
 
 int	apply_instruction(char *line , t_stack **a , t_stack **b)
