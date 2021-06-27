@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/27 11:53:33 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/27 18:23:26 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,7 @@ int	get_max_index(t_stack *a)
 int	get_min_index(t_stack *a)
 {
 	int min_index;
-	int min;
+	int min; 
 	
 	min = get_min(a);
 	min_index = 1;
