@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 12:11:50 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:30:56 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,12 +44,12 @@ int main(int ac, char **av)
 	t_stack *a;
 	t_stack *b;
 	
-	int *array;
+	// int *array;
 	if (ac >= 2)
 	{
 		b = NULL;
 		a = new_stack(ac, av);
-		array = get_array(a);
+		// array = get_array(a);affect ::::::;1
 		if (!is_sorted(a))
 			push_swap(&a, &b, ac - 1);
 		visualize(a, b);

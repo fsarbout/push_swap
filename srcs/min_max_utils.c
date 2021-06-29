@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 12:10:38 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 16:26:00 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -138,7 +138,11 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 	while (arr[lenght - i - 1] >= middle && ++i)
 		index2++;
 	if (index1 <= index2)
+	{
+		free(arr);	
 		return (index1);
+	}
+	free(arr);
 	return (lenght - i - 1);
 }
 
@@ -165,7 +169,7 @@ int	get_middle(t_stack	*a, int	len)
 {
 	int	mid;
 	int	*arr;
-	int	i;
+	// int	i;
 	int	*sorted_arr;
 
 	if (len == 1)
@@ -176,7 +180,7 @@ int	get_middle(t_stack	*a, int	len)
 			return (a->nb);
 		return (a->next->nb);
 	}
-	i = 0;
+	// i = 0; ::::::;1
 	arr = get_array(a);
 	sorted_arr = quick_sort(arr, 0, len - 1);
 	mid = sorted_arr[len / 2];

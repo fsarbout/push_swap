@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 13:30:54 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 20:38:59 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,10 @@ int 	min_or_max(t_stack *a, t_stack *b);
 
 void	do_something(char *str);
 void visualize(t_stack *a, t_stack *b);
-void	move_mins(t_stack **a, t_stack **b, int lenght, int min_index);
-void	move_maxs(t_stack **a, t_stack **b, int lenght, int max_index);
+// void	move_mins(t_stack **a, t_stack **b, int lenght, int min_index);
+// void	move_maxs(t_stack **a, t_stack **b, int lenght, int max_index);
+
+void move_mins(t_stack **a, t_stack **b, int back_min, int min_index);
+void move_maxs(t_stack **a, t_stack **b, int back_max, int max_index);
 
  #endif
