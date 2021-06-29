@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/27 18:23:26 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 12:10:38 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,6 @@ void exclude_min(t_stack **a, t_stack **b)
 	i = 1;
 	lenght = list_lenght(*a);
 	min_index = get_min_index(*a);
-	// printf("Exclude MIN %d\n", min_index);
 	if (min_index <= lenght / 2)
 	{
 		while (i < min_index && i++)
@@ -99,11 +98,9 @@ int	get_max_index(t_stack *a)
 	int max;
 	
 	max = get_max(a);
-	max_index = 1;
-	while ((a) && ((a)->next))
+	max_index = 0;
+	while (a->nb != max)
 	{
-		if ((a)->nb == max)
-			return (max_index);
 		max_index++;
 		(a) = (a)->next;
 	}
@@ -115,14 +112,11 @@ int	get_min_index(t_stack *a)
 	int min_index;
 	int min; 
 	
+
 	min = get_min(a);
-	min_index = 1;
-	while ((a) && ((a)->next))
+	min_index = 0;
+	while (a->nb != min)
 	{
-		if ((a)->nb == min)
-		{
-			return (min_index);
-		}
 		min_index++;
 		(a) = (a)->next;
 	}
