@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 13:11:53 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:42:42 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,27 +81,24 @@ void	sort_hundred(t_stack **a, t_stack **b)
 	lenght = list_lenght(*b);
 		visualize(*a, *b);
 
-	sort_min_half(a, b, lenght , lenght / 2);
+	sort_min_half(a, b, lenght);
 	
 }
 
-void	sort_min_half(t_stack **a, t_stack **b, int lenght, int half_lenght)
+void	sort_min_half(t_stack **a, t_stack **b, int lenght)
 {
 	int min_index;
 	int max_index;
+	int half_lenght= lenght / 2;
 	
-
-		
 	while (*b)
 	{
 		min_index = get_min_index(*b);
- 		max_index = get_max_index(*b);
-		// max_index = get_max_index(*b);
-
-		 printf (" min index %d\n", min_index);
-		 printf (" max index %d\n", max_index);
+		max_index = get_max_index(*b);
 		
-		if (min_index > half_lenght)
+		if (min_index < max_index)
+{		
+	if (min_index > half_lenght)
 		{
 			min_index = lenght - min_index - 1;
 			while (min_index >= 0 && min_index--)
@@ -116,12 +113,67 @@ void	sort_min_half(t_stack **a, t_stack **b, int lenght, int half_lenght)
 			push(b, a, 1);
 			rotate(a, 1);
 		}
+		}
 		/**/
-		visualize(*a, *b);
-		
-		printf (" min index %d\n", min_index);
-		printf (" max index %d\n", max_index);
-		
+		// if (*b)
+	else		
+	
+	{
+				if (max_index > half_lenght)
+		{
+			max_index = lenght - max_index - 1;
+			while (max_index >= 0 && max_index--)
+				reverse(b,2);
+			push(b, a, 2);
+			visualize(*a, *b);
+		}
+		else
+		{
+			while (max_index >= 1 && max_index--)
+				rotate(b,2);
+			push(b, a, 2);
+			visualize(*a, *b);
+		}}
+
+	
+
+		// move_mins(a,b,lenght,min_index);
+		// move_maxs(a,b,lenght,max_index);
+		lenght--;
+	}
+	// visualize(*a, *b);
+}
+
+void	move_mins(t_stack **a, t_stack **b, int lenght, int min_index)
+{
+	int half_lenght;
+
+	// min_index = get_min_index(*b);
+	half_lenght = lenght / 2;
+	
+	if (min_index > half_lenght)
+	{
+		min_index = lenght - min_index - 1;
+		while (min_index >= 0 && min_index--)
+			reverse(b,2);			
+		push(b, a, 1);
+		rotate(a, 1);
+	}
+	else
+	{
+		while (min_index >= 1 && min_index--)
+			rotate(b,1);
+		push(b, a, 1);
+		rotate(a, 1);
+	}
+}
+
+void	move_maxs(t_stack **a, t_stack **b, int lenght, int max_index)
+{
+	int half_lenght;
+
+	half_lenght = lenght / 2;
+	
 		if (max_index > half_lenght)
 		{
 			max_index = lenght - max_index - 1;
@@ -137,10 +189,13 @@ void	sort_min_half(t_stack **a, t_stack **b, int lenght, int half_lenght)
 			push(b, a, 2);
 			visualize(*a, *b);
 		}
-		lenght--;
-	}
-	// visualize(*a, *b);
 }
+
+// void	move_mins(t_stack **a, int min_index, int lenght, int half_lenght)
+// {
+	
+// }
+
 
 void	do_something(char *str)
 {

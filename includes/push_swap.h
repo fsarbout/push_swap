@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/27 12:49:08 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/29 13:30:54 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,11 +91,12 @@ void	sort_hundred(t_stack **a, t_stack **b);
 int		get_middle(t_stack	*a, int	len);
 int		get_closest_min_index(t_stack *a, int middle, int lenght);
 void	move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle);
-void	sort_min_half(t_stack **a, t_stack **b, int lenght, int half_lenght);
+void	sort_min_half(t_stack **a, t_stack **b, int lenght);
 int 	min_or_max(t_stack *a, t_stack *b);
 
 void	do_something(char *str);
 void visualize(t_stack *a, t_stack *b);
-
+void	move_mins(t_stack **a, t_stack **b, int lenght, int min_index);
+void	move_maxs(t_stack **a, t_stack **b, int lenght, int max_index);
 
  #endif
