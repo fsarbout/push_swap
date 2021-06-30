@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/30 10:56:15 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/30 12:08:41 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -97,14 +97,12 @@ void sort_hundred(t_stack **a, t_stack **b)
 	move_mins_to_b(a, b, lenght_a / 2, middle);
 	lenght_b = list_lenght(*b);
 	sort_min_half(a, b, lenght_b);
-	// visualize(*a,*b);
 	while (*a)
 	{
 		if ((*a)->nb == min)
 			break;
 		push(a,b,2);
 	}
-	// visualize(*a,*b);
 	lenght_b = list_lenght(*b);
 	sort_min_half(a, b, lenght_b);
 }
@@ -166,7 +164,7 @@ void move_mins(t_stack **a, t_stack **b, int back_min, int min_index)
 	{
 		while (min_index >= 1)
 		{
-			rotate(b, 1);
+			rotate(b, 2);
 			min_index--;
 		}
 		push(b, a, 1);

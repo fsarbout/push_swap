@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:07:10 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 11:33:20 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/30 13:30:21 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ void	push(t_stack **stack_1 , t_stack **stack_2, int key)
 	}
 	if (key == 1)
 		write(1 ,"pa\n", 3);
-	else if (key == 2)
+	if (key == 2)
 		write(1 ,"pb\n", 3);
 }
 
@@ -82,9 +82,9 @@ int	apply_instruction(char *line , t_stack **a , t_stack **b)
 	else if (!strncmp(line, "ss" , 3))
 		complex_instructions("ss",a,b);
 	else if (!strncmp(line, "pa" , 3))
-		push(a,b, 0);
-	else if (!strncmp(line, "pb" , 3))
 		push(b,a, 0);
+	else if (!strncmp(line, "pb" , 3))
+		push(a,b, 0);
 	else if (!strncmp(line, "ra" , 3))
 		rotate(a, 0);
 	else if (!strncmp(line, "rb" , 3))
