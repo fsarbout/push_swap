@@ -6,15 +6,13 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 16:26:00 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:38:44 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-
-
-int	get_min(t_stack *a)
+int get_min(t_stack *a)
 {
 	int min;
 
@@ -29,7 +27,7 @@ int	get_min(t_stack *a)
 	return (min);
 }
 
-int		get_max(t_stack *a)
+int get_max(t_stack *a)
 {
 	int max;
 
@@ -44,27 +42,28 @@ int		get_max(t_stack *a)
 	return (max);
 }
 
-void	exclude_max(t_stack **a, t_stack **b)
+void exclude_max(t_stack **a, t_stack **b)
 {
 	int max_index;
 	int lenght;
 	int i;
-	
+
 	lenght = list_lenght(*a);
-	i = 1;
-	max_index = get_max_index(*a);
+	i = 0;
+	max_index = get_max_index(*a) + 1;
+	// printf ("max index %d\n", max_index);
 	if (max_index <= lenght / 2)
 	{
-		while (i < max_index && i++)
+		while (i < max_index && ++i)
 			rotate(a, 1);
-		push(a,b, 1);
+		push(a, b, 2);
 	}
 	else
 	{
 		i = lenght;
-		while (i >= max_index && i--)
+		while (i >= max_index && --i)
 			reverse(a, 1);
-		push(a,b, 1);
+		push(a, b, 2);
 	}
 }
 
@@ -73,30 +72,32 @@ void exclude_min(t_stack **a, t_stack **b)
 	int min_index;
 	int lenght;
 	int i;
-	
-	i = 1;
+
+	i = 0;
 	lenght = list_lenght(*a);
 	min_index = get_min_index(*a);
+	// printf ("min index %d\n", min_index);
+
 	if (min_index <= lenght / 2)
 	{
-		while (i < min_index && i++)
+		while (i < min_index && ++i)
 			rotate(a, 1);
-		push(a,b, 1);
+		push(a, b, 2);
 	}
 	else
 	{
 		i = lenght;
-		while (i >= min_index && i--)
+		while (i >= min_index && --i)
 			reverse(a, 1);
-		push(a, b, 1);
+		push(a, b, 2);
 	}
 }
 
-int	get_max_index(t_stack *a)
+int get_max_index(t_stack *a)
 {
 	int max_index;
 	int max;
-	
+
 	max = get_max(a);
 	max_index = 0;
 	while (a->nb != max)
@@ -107,11 +108,10 @@ int	get_max_index(t_stack *a)
 	return max_index;
 }
 
-int	get_min_index(t_stack *a)
+int get_min_index(t_stack *a)
 {
 	int min_index;
-	int min; 
-	
+	int min;
 
 	min = get_min(a);
 	min_index = 0;
@@ -123,9 +123,9 @@ int	get_min_index(t_stack *a)
 	return min_index;
 }
 
-int	get_closest_min_index(t_stack *a, int middle, int lenght)
+int get_closest_min_index(t_stack *a, int middle, int lenght)
 {
-	int	*arr;
+	int *arr;
 	int i;
 
 	arr = get_array(a);
@@ -139,16 +139,16 @@ int	get_closest_min_index(t_stack *a, int middle, int lenght)
 		index2++;
 	if (index1 <= index2)
 	{
-		free(arr);	
+		free(arr);
 		return (index1);
 	}
 	free(arr);
 	return (lenght - i - 1);
 }
 
-int	get_closest_max_index(t_stack *a, int middle, int lenght)
+int get_closest_max_index(t_stack *a, int middle, int lenght)
 {
-	int	*arr;
+	int *arr;
 	int i;
 
 	arr = get_array(a);
@@ -165,12 +165,12 @@ int	get_closest_max_index(t_stack *a, int middle, int lenght)
 	return (lenght - i - 1);
 }
 
-int	get_middle(t_stack	*a, int	len)
+int get_middle(t_stack *a, int len)
 {
-	int	mid;
-	int	*arr;
+	int mid;
+	int *arr;
 	// int	i;
-	int	*sorted_arr;
+	int *sorted_arr;
 
 	if (len == 1)
 		return (a->nb);

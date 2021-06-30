@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 23:30:35 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/06/30 10:56:15 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,12 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 	else if (ac == 3)
 		sort_three(a);
 	else if (ac == 5)
+	{
+	// visualize(*a,*b);
+		
 		sort_five(a, b);
-	else if (ac <= 100)
+	}
+	else if (ac <= 100 && ac != 5)
 		sort_hundred(a, b);
 	// else if (ac == 500)
 	// 	do_something();
@@ -61,12 +65,23 @@ void sort_three(t_stack **a)
 void sort_five(t_stack **a, t_stack **b)
 {
 	exclude_max(a, b);
+	// visualize(*a,*b);
 	exclude_min(a, b);
+	// visualize(*a,*b);
+
 	if (!is_sorted(*a))
 		sort_three(a);
-	push(b, a, 2);
-	push(b, a, 2);
+	// visualize(*a,*b);
+
+	push(b, a, 1);
+	// visualize(*a,*b);
+
+	push(b, a, 1);
+	// visualize(*a,*b);
+
 	rotate(a, 1);
+	// visualize(*a,*b);
+
 }
 
 void sort_hundred(t_stack **a, t_stack **b)
@@ -80,19 +95,18 @@ void sort_hundred(t_stack **a, t_stack **b)
 	lenght_a = list_lenght(*a);
 	middle = get_middle(*a, lenght_a);
 	move_mins_to_b(a, b, lenght_a / 2, middle);
-	lenght_a = list_lenght(*a);
 	lenght_b = list_lenght(*b);
-	// visualize(*a,*b);
 	sort_min_half(a, b, lenght_b);
 	// visualize(*a,*b);
-	// while (*a && (*a)->next)
-	// {
-	// 	if ((*a)->nb == min)
-	// 		return;
-	// 	push(a,b,2);
-	// 	*a = (*a)->next;
-	// }
+	while (*a)
+	{
+		if ((*a)->nb == min)
+			break;
+		push(a,b,2);
+	}
 	// visualize(*a,*b);
+	lenght_b = list_lenght(*b);
+	sort_min_half(a, b, lenght_b);
 }
 
 void sort_min_half(t_stack **a, t_stack **b, int lenght)
@@ -129,7 +143,6 @@ void sort_min_half(t_stack **a, t_stack **b, int lenght)
 		}
 		lenght--;
 	}
-	printf ("ra number%d\n", ra_number);
 	while (ra_number)
 	{
 		rotate(a, 1);
@@ -171,7 +184,7 @@ void move_maxs(t_stack **a, t_stack **b, int back_max, int max_index)
 			max_index--;
 		}
 		push(b, a, 1);
-		visualize(*a, *b);
+		// visualize(*a, *b);
 	}
 	else
 	{
@@ -208,7 +221,7 @@ void move_mins_to_b(t_stack **a, t_stack **b, int half_stack, int middle)
 		else
 			while (index < lenght && ++index)
 				reverse(a, 1);
-		push(a, b, 1);
+		push(a, b, 2);
 		i++;
 	}
 }
