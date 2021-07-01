@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/30 12:08:41 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/01 11:59:37 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,6 +64,8 @@ void sort_three(t_stack **a)
 
 void sort_five(t_stack **a, t_stack **b)
 {
+	// visualize(*a,*b);
+
 	exclude_max(a, b);
 	// visualize(*a,*b);
 	exclude_min(a, b);
