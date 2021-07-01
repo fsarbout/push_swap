@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/01 11:59:37 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/01 13:58:29 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,12 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 		swap(a, 1);
 	else if (ac == 3)
 		sort_three(a);
+	else if (ac == 4)
+	{
+		exclude_min(a,b);
+		sort_three(a);
+		push(b,a,1);
+	}
 	else if (ac == 5)
 	{
 	// visualize(*a,*b);
