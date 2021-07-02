@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 12:11:27 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:33:28 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,16 +119,4 @@ int del_first_node(t_stack **list)
 	free(*list);
 	*list = tmp;
 	return (first_node);
-}
-
-t_stack *lstnew(int nb)
-{
-	t_stack *stack;
-
-	stack = malloc(sizeof(t_stack));
-	if (!stack)
-		return (NULL);
-	stack->nb = nb;
-	stack->next = NULL;
-	return (stack);
 }

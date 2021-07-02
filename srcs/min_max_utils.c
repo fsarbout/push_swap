@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:37:34 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/02 16:24:32 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:27:26 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -129,4 +129,3 @@ int get_middle(t_stack *a, int len)
 	free(arr);
 	return (mid);
 }
-

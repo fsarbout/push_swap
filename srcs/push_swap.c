@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/02 16:20:13 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:46:04 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 		sort_three(a);
 	else if (ac == 4)
 	{
-		exclude_min_max(a,b,'-',list_lenght(*a));
+		exclude_min_max(a, b, '-', list_lenght(*a));
 		if (!is_sorted(*a))
 			sort_three(a);
 		push(b,a,1);
@@ -30,10 +30,10 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 		sort_five(a, b);
 	else if (ac <= 100 && ac != 5)
 		sort_hundred(a, b);
-	// else if (ac == 500)
+	// else if (ac <= 500)
 	// 	do_something();
-	else
-		printf("hello1\n");
+	else if (ac > 500)
+		return;
 }
 
 void sort_three(t_stack **a)
@@ -174,7 +174,6 @@ void move_maxs(t_stack **a, t_stack **b, int back_max, int max_index)
 			max_index--;
 		}
 		push(b, a, 1);
-		// visualize(*a, *b);
 	}
 	else
 	{
