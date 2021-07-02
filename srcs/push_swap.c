@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/01 13:58:29 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 10:51:43 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,15 +22,12 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 	else if (ac == 4)
 	{
 		exclude_min(a,b);
-		sort_three(a);
+		if (!is_sorted(*a))
+			sort_three(a);
 		push(b,a,1);
 	}
 	else if (ac == 5)
-	{
-	// visualize(*a,*b);
-		
 		sort_five(a, b);
-	}
 	else if (ac <= 100 && ac != 5)
 		sort_hundred(a, b);
 	// else if (ac == 500)
@@ -70,26 +67,13 @@ void sort_three(t_stack **a)
 
 void sort_five(t_stack **a, t_stack **b)
 {
-	// visualize(*a,*b);
-
 	exclude_max(a, b);
-	// visualize(*a,*b);
 	exclude_min(a, b);
-	// visualize(*a,*b);
-
 	if (!is_sorted(*a))
 		sort_three(a);
-	// visualize(*a,*b);
-
 	push(b, a, 1);
-	// visualize(*a,*b);
-
 	push(b, a, 1);
-	// visualize(*a,*b);
-
 	rotate(a, 1);
-	// visualize(*a,*b);
-
 }
 
 void sort_hundred(t_stack **a, t_stack **b)
