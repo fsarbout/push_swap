@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/02 10:51:43 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:20:13 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 		sort_three(a);
 	else if (ac == 4)
 	{
-		exclude_min(a,b);
+		exclude_min_max(a,b,'-',list_lenght(*a));
 		if (!is_sorted(*a))
 			sort_three(a);
 		push(b,a,1);
@@ -40,8 +40,8 @@ void sort_three(t_stack **a)
 {
 	int min;
 
-	min = get_min(*a);
-	if ((*a)->nb == get_max(*a))
+	min = get_min_or_max(*a, '-');
+	if ((*a)->nb == get_min_or_max(*a, '+'))
 	{
 		if ((*a)->next->nb == min)
 			rotate(a, 1);
@@ -67,8 +67,8 @@ void sort_three(t_stack **a)
 
 void sort_five(t_stack **a, t_stack **b)
 {
-	exclude_max(a, b);
-	exclude_min(a, b);
+	exclude_min_max(a, b, '+', list_lenght(*a));
+	exclude_min_max(a, b, '-', list_lenght(*a));
 	if (!is_sorted(*a))
 		sort_three(a);
 	push(b, a, 1);
@@ -81,7 +81,7 @@ void sort_hundred(t_stack **a, t_stack **b)
 	int lenght_a;
 	int lenght_b;
 	int middle;
-	int min= get_min(*a);
+	int min= get_min_or_max(*a, '-');
 
 	(void)b;
 	lenght_a = list_lenght(*a);
@@ -112,8 +112,8 @@ void sort_min_half(t_stack **a, t_stack **b, int lenght)
 	{
 		back_min = 0;
 		back_max = 0;
-		min_index = get_min_index(*b);
-		max_index = get_max_index(*b);
+		min_index = get_min_max_index(*b, '-');
+		max_index = get_min_max_index(*b ,'+');
 		if (min_index > lenght / 2)
 		{
 			back_min = 1;

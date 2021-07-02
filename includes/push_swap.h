@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/29 20:38:59 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/02 16:12:01 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,12 +74,9 @@ void		sort_three(t_stack **a);
 void		sort_five(t_stack **a, t_stack **b);
 
 /* min_max_function */
-int 		get_min(t_stack *a);
-int			get_max(t_stack *a);
-int			get_max_index(t_stack *a);
-int			get_min_index(t_stack *a);
-void		exclude_max(t_stack **a, t_stack **b);
-void		exclude_min(t_stack **a, t_stack **b);
+// int 		get_min(t_stack *a);
+// int			get_max(t_stack *a);
+
 
 /* quick_sort algo functions*/
 void ft_swap(int* a, int* b);
@@ -101,5 +98,9 @@ void visualize(t_stack *a, t_stack *b);
 
 void move_mins(t_stack **a, t_stack **b, int back_min, int min_index);
 void move_maxs(t_stack **a, t_stack **b, int back_max, int max_index);
+
+void 	exclude_min_max(t_stack **a, t_stack **b, char min_or_max, int lenght);
+int 	get_min_max_index(t_stack *a, char min_or_max);
+int 	get_min_or_max(t_stack *a, int min_or_max);
 
  #endif
