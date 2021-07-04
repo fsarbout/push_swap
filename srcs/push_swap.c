@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/02 16:46:04 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/04 19:52:59 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 	}
 	else if (ac == 5)
 		sort_five(a, b);
-	else if (ac <= 100 && ac != 5)
-		sort_hundred(a, b);
-	// else if (ac <= 500)
-	// 	do_something();
-	else if (ac > 500)
-		return;
+	else if (ac <= 100 && ac != 5 && ac != 20)
+		sort_500(a,b);
+	else if (ac >= 500)
+		sort_500(a,b);
+	// print_list(a);
+
 }
 
 void sort_three(t_stack **a)
@@ -85,7 +85,7 @@ void sort_hundred(t_stack **a, t_stack **b)
 
 	(void)b;
 	lenght_a = list_lenght(*a);
-	middle = get_middle(*a, lenght_a);
+	middle = get_middle(*a, lenght_a , 2);
 	move_mins_to_b(a, b, lenght_a / 2, middle);
 	lenght_b = list_lenght(*b);
 	sort_min_half(a, b, lenght_b);
@@ -197,12 +197,14 @@ void move_mins_to_b(t_stack **a, t_stack **b, int half_stack, int middle)
 	int lenght = list_lenght(*a);
 	int i = 0;
 	int j = 0;
-
-	while (i < half_stack)
+	(void)half_stack;
+	while (isthere(*a, middle))
 	{
 		lenght = list_lenght(*a);
 		int mid = lenght / 2;
-		index = get_closest_min_index(*a, middle, lenght);
+
+		index = get_closest_min_index1(*a, middle, lenght);
+		// printf("ïndex =  %d\n", index );
 		j = 0;
 		if (index < mid)
 			while (j < index && ++j)
@@ -213,4 +215,18 @@ void move_mins_to_b(t_stack **a, t_stack **b, int half_stack, int middle)
 		push(a, b, 2);
 		i++;
 	}
+}
+
+int		isthere(t_stack *a, int middle)
+{
+	
+	t_stack *tmp;
+	tmp = a;
+	while (tmp)
+	{
+		if (tmp->nb < middle)
+			return (1);
+		tmp = tmp->next;
+	}
+	return (0);
 }

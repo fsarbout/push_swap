@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/02 16:33:28 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/04 13:02:37 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -119,4 +119,33 @@ int del_first_node(t_stack **list)
 	free(*list);
 	*list = tmp;
 	return (first_node);
+}
+
+// void	reverse_list(t_stack** head_ref)
+// {
+//     t_stack* prev = NULL;
+//     t_stack* current = *head_ref;
+//     t_stack* next = NULL;
+//     while (current != NULL) {
+//         next = current->next;
+//         current->next = prev;
+//         prev = current;
+//         current = next;
+//     }
+//     *head_ref = prev;
+// }
+
+t_stack	*reverse_list_rtn(t_stack** head_ref)
+{
+    t_stack* prev = NULL;
+    t_stack* current = *head_ref;
+    t_stack* next = NULL;
+    while (current != NULL) {
+        next = current->next;
+        current->next = prev;
+        prev = current;
+        current = next;
+    }
+    *head_ref = prev;
+	return (*head_ref);
 }
