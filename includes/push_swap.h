@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/04 19:17:38 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/05 10:00:18 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,8 +73,7 @@ void 		print_array(int arr[], int size);
 /* min max utils */
 int			get_middle(t_stack	*a, int	len, int devide_to);
 int			get_closest_min_index(t_stack *a, int middle, int lenght);
-int			get_closest_min_index1(t_stack *a, int middle, int lenght);
-void		move_mins_to_b(t_stack **a, t_stack **b, int half_stack ,int middle);
+void		move_mins_to_b(t_stack **a, t_stack **b ,int middle);
 void		sort_min_half(t_stack **a, t_stack **b, int lenght);
 int 		min_or_max(t_stack *a, t_stack *b);
 void 		move_mins(t_stack **a, t_stack **b, int back_min, int min_index);
@@ -91,14 +90,11 @@ void		do_something(char *str);
 void	sort_500(t_stack **a, t_stack **b);
  
 // void	reverse_list(t_stack** head_ref);
-
 t_stack	*reverse_list_rtn(t_stack** head_ref);
-int	get_values_index(t_stack *a, int index);
-int	get_indexs_value(t_stack *a, int value);
+int		get_values_index(t_stack *a, int index);
+int		get_indexs_value(t_stack *a, int value);
 int		getmin_index_top(t_stack *a, int min);
 int		getmin_index_bottum(t_stack *a, int min);
 int		isthere(t_stack *a, int middle);
-
-
 
  #endif

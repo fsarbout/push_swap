@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/04 19:52:59 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/05 16:40:24 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,10 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 	}
 	else if (ac == 5)
 		sort_five(a, b);
-	else if (ac <= 100 && ac != 5 && ac != 20)
+	else if (ac <= 100 && ac != 20)
+		sort_hundred(a,b);
+	else if (ac == 500)
 		sort_500(a,b);
-	else if (ac >= 500)
-		sort_500(a,b);
-	// print_list(a);
-
 }
 
 void sort_three(t_stack **a)
@@ -86,7 +84,7 @@ void sort_hundred(t_stack **a, t_stack **b)
 	(void)b;
 	lenght_a = list_lenght(*a);
 	middle = get_middle(*a, lenght_a , 2);
-	move_mins_to_b(a, b, lenght_a / 2, middle);
+	move_mins_to_b(a, b,  middle);
 	lenght_b = list_lenght(*b);
 	sort_min_half(a, b, lenght_b);
 	while (*a)
@@ -186,25 +184,23 @@ void move_maxs(t_stack **a, t_stack **b, int back_max, int max_index)
 	}
 }
 
-void do_something(char *str)
-{
-	printf("%s\n", str);
-}
-
-void move_mins_to_b(t_stack **a, t_stack **b, int half_stack, int middle)
+void move_mins_to_b(t_stack **a, t_stack **b, int middle)
 {
 	int index;
 	int lenght = list_lenght(*a);
 	int i = 0;
 	int j = 0;
-	(void)half_stack;
+
 	while (isthere(*a, middle))
 	{
+	
 		lenght = list_lenght(*a);
+		// print_list(a);
 		int mid = lenght / 2;
-
-		index = get_closest_min_index1(*a, middle, lenght);
-		// printf("ïndex =  %d\n", index );
+		// printf("middle %d\n", middle);
+		// printf("mid %d\n", mid);
+		index = get_closest_min_index(*a, middle, lenght);
+		// printf("closest min index %d \n", index);
 		j = 0;
 		if (index < mid)
 			while (j < index && ++j)
@@ -214,6 +210,14 @@ void move_mins_to_b(t_stack **a, t_stack **b, int half_stack, int middle)
 				reverse(a, 1);
 		push(a, b, 2);
 		i++;
+		
+		// printf ("a******\n");
+		// print_list(a);
+		// printf ("a******\n");
+		
+		// printf ("b******\n");
+		// print_list(b);
+		// printf ("b******\n");
 	}
 }
 
