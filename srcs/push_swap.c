@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 11:39:43 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/05 16:40:24 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/05 17:35:33 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void push_swap(t_stack **a, t_stack **b, int ac)
 		sort_five(a, b);
 	else if (ac <= 100 && ac != 20)
 		sort_hundred(a,b);
-	else if (ac == 500)
+	else if (ac == 20 || ac == 500)
 		sort_500(a,b);
 }
 
