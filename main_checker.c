@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:03 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/30 13:30:29 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:01:10 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,11 +56,8 @@ int main(int ac, char **av)
 			free(instruction);
 			if (gnl_ret == -1)
 				return (-1);
-			// visualize(a,b);
 		}
-		// visualize(a,b);
 		if (is_sorted(a) && !b)
-		// if (is_sorted(a))
 			exit_(&a, 0, "OK\n", 0);
 		else
 			exit_(&a, 0, "KO\n", 2);

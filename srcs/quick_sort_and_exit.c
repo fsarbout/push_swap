@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   quick_sort.c                                       :+:      :+:    :+:   */
+/*   quick_sort_and_exit.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/23 15:11:38 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/25 12:27:04 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 11:40:18 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,4 +65,21 @@ void print_array(int *arr, int size)
 	for (i=0; i < size; i++)
 	printf("%d ", arr[i]);
 	printf("\n");
+}
+
+void	exit_(t_stack **a,t_stack **b ,char *string, int error)
+{
+	if (error == 1)
+		ft_putstr("Error\n");
+	if (error == 0)
+		ft_putendl_fd(GREEN, STDOUT_FILENO);
+	if (error == 2)
+		ft_putendl_fd(RED, STDOUT_FILENO);
+	ft_putstr(string);
+	(void)a;
+	(void)b;
+	if (error == 1)
+		exit(1);
+	// system("leaks push_swap");
+	exit(0);
 }

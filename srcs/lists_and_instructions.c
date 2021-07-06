@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   list_operations.c                                  :+:      :+:    :+:   */
+/*   lists_and_instructions.c                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/06/21 18:09:00 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/24 11:49:44 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:04:01 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,4 +41,34 @@ int 	*get_array(t_stack *a)
 		a = a->next;
 	}
 	return (tab);
+}
+
+void print_list(t_stack **head)
+{
+	t_stack *temp;
+	temp = *head;
+	while (temp)
+	{
+		printf("%d\n", temp->nb);
+		temp = temp->next;
+	}
+}
+
+void	complex_instructions(char *instruction, t_stack **a, t_stack **b)
+{
+	if ((!strncmp(instruction, "ss" , 3)))
+	{
+		swap(a, 0);
+		swap(b, 0);
+	}
+	else if (!strncmp(instruction, "rr" , 3))
+	{
+		rotate(a, 0);
+		rotate(b, 0);
+	}
+	else if (!strncmp(instruction, "rrr" , 4))
+	{
+		reverse(a, 0);
+		reverse(b, 0);
+	}
 }

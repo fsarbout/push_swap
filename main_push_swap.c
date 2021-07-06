@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:46:06 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/05 17:42:22 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 09:41:06 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ int main(int ac, char **av)
 		a = new_stack(ac, av);
 		if (!is_sorted(a))
 			push_swap(&a, &b, ac - 1);
-		// visualize(a, b);
 	}
 	else
 		return (0);

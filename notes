@@ -1,9 +1,0 @@
-the list is as below :
-
-	3   23   4   1
-
-	if (tmp && tmp->next)
-	{
-		if (tmp < tmp->next)
-			tmp = tmp->next;
-	}

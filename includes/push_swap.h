@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/24 21:40:09 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/05 10:00:18 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 12:04:48 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ typedef	struct	s_stack
 }				t_stack;
 
 /* lists */
-void		clear_list(t_stack **lst);
 t_stack		*new_stack(int argc, char **argv);
 void		print_list(t_stack **head);
 void		list_add_front(t_stack **head , int nb);
@@ -62,7 +61,8 @@ int 		*get_array(t_stack *a);
 void 		push_swap(t_stack **a, t_stack **b, int  ac);
 void		sort_three(t_stack **a);
 void		sort_five(t_stack **a, t_stack **b);
-void		sort_hundred(t_stack **a, t_stack **b);
+void		sort_plus_5(t_stack **a, t_stack **b, int lenght_stack, int cnt);
+
 
 /* quick_sort algo functions */
 void 		ft_swap(int* a, int* b);
@@ -74,27 +74,15 @@ void 		print_array(int arr[], int size);
 int			get_middle(t_stack	*a, int	len, int devide_to);
 int			get_closest_min_index(t_stack *a, int middle, int lenght);
 void		move_mins_to_b(t_stack **a, t_stack **b ,int middle);
-void		sort_min_half(t_stack **a, t_stack **b, int lenght);
 int 		min_or_max(t_stack *a, t_stack *b);
-void 		move_mins(t_stack **a, t_stack **b, int back_min, int min_index);
-void 		move_maxs(t_stack **a, t_stack **b, int back_max, int max_index);
 void 		exclude_min_max(t_stack **a, t_stack **b, char min_or_max, int lenght);
 int 		get_min_max_index(t_stack *a, char min_or_max);
 int 		get_min_or_max(t_stack *a, int min_or_max);
+int			getmin_index_top(t_stack *a, int min);
+int			getmin_index_bottum(t_stack *a, int min);
+int			isthere(t_stack *a, int middle);
 
-/* to remove later */
+/* util */
 void 		visualize(t_stack *a, t_stack *b);
-void		do_something(char *str);
-
-/* working on */
-void	sort_500(t_stack **a, t_stack **b);
- 
-// void	reverse_list(t_stack** head_ref);
-t_stack	*reverse_list_rtn(t_stack** head_ref);
-int		get_values_index(t_stack *a, int index);
-int		get_indexs_value(t_stack *a, int value);
-int		getmin_index_top(t_stack *a, int min);
-int		getmin_index_bottum(t_stack *a, int min);
-int		isthere(t_stack *a, int middle);
 
  #endif

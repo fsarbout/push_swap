@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   operations.c                                       :+:      :+:    :+:   */
+/*   instructions.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/11 19:07:10 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/06/30 13:30:21 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 11:37:47 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,21 +102,3 @@ int	apply_instruction(char *line , t_stack **a , t_stack **b)
 	return (0);
 }
 
-void	complex_instructions(char *instruction, t_stack **a, t_stack **b)
-{
-	if ((!strncmp(instruction, "ss" , 3)))
-	{
-		swap(a, 0);
-		swap(b, 0);
-	}
-	else if (!strncmp(instruction, "rr" , 3))
-	{
-		rotate(a, 0);
-		rotate(b, 0);
-	}
-	else if (!strncmp(instruction, "rrr" , 4))
-	{
-		reverse(a, 0);
-		reverse(b, 0);
-	}
-}

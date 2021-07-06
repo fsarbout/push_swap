@@ -6,7 +6,7 @@
 /*   By: fsarbout <fsarbout@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/29 21:54:31 by fsarbout          #+#    #+#             */
-/*   Updated: 2021/07/04 13:02:37 by fsarbout         ###   ########.fr       */
+/*   Updated: 2021/07/06 11:55:34 by fsarbout         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,17 +45,6 @@ void list_add_front(t_stack **head, int nb)
 	}
 }
 
-void print_list(t_stack **head)
-{
-	t_stack *temp;
-	temp = *head;
-	while (temp)
-	{
-		printf("%d\n", temp->nb);
-		temp = temp->next;
-	}
-}
-
 t_stack *new_stack(int ac, char **av)
 {
 	t_stack *stack;
@@ -70,17 +59,6 @@ t_stack *new_stack(int ac, char **av)
 		ac--;
 	}
 	return (stack);
-}
-
-void clear_list(t_stack **lst)
-{
-	if (*lst)
-	{
-		if ((*lst)->next)
-			clear_list(&(*lst)->next);
-		free(*lst);
-		*lst = NULL;
-	}
 }
 
 int del_last_node(t_stack **list)
@@ -119,33 +97,4 @@ int del_first_node(t_stack **list)
 	free(*list);
 	*list = tmp;
 	return (first_node);
-}
-
-// void	reverse_list(t_stack** head_ref)
-// {
-//     t_stack* prev = NULL;
-//     t_stack* current = *head_ref;
-//     t_stack* next = NULL;
-//     while (current != NULL) {
-//         next = current->next;
-//         current->next = prev;
-//         prev = current;
-//         current = next;
-//     }
-//     *head_ref = prev;
-// }
-
-t_stack	*reverse_list_rtn(t_stack** head_ref)
-{
-    t_stack* prev = NULL;
-    t_stack* current = *head_ref;
-    t_stack* next = NULL;
-    while (current != NULL) {
-        next = current->next;
-        current->next = prev;
-        prev = current;
-        current = next;
-    }
-    *head_ref = prev;
-	return (*head_ref);
 }
